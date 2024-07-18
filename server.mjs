@@ -5,7 +5,12 @@ const app = express();
 const port = process.env.PORT || 8080;
 
 app.get('/', async (req, res) => {
-  const result = await connectAndQuery();
+  try {
+    const result = await connectAndQuery();
+  } catch (err) {
+    res.send(err);
+    return;
+  }
   // await new Promise(r => setTimeout(r, 1500));
   // res.send('Welcome to my server!');
   res.send(generateHTMLTable(result));
