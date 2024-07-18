@@ -1,18 +1,3 @@
-import express from "express";
-
-const app = express();
-const port = process.env.PORT || 8080;
-
-app.get('/', async (req, res) => {
-  // const result = await connectAndQuery();
-  await new Promise(r => setTimeout(r, 1500));
-  res.send('Welcome to my server!');
-});
-
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
-
 const sql = require('mssql');
 
 const config = {
@@ -58,6 +43,7 @@ const config = {
 */
 
 console.log("Starting...");
+connectAndQuery();
 
 async function connectAndQuery() {
     try {
