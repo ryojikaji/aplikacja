@@ -1,4 +1,5 @@
 import express from "express";
+import mssql from "mssql";
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -12,8 +13,6 @@ app.get('/', async (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
-
-const sql = require('mssql');
 
 const config = {
     user: 'CloudSA8c906187', // better stored in an app setting such as process.env.DB_USER
