@@ -1,13 +1,14 @@
 import express from "express";
-import mssql from "mssql";
+import sql from "mssql";
 
 const app = express();
 const port = process.env.PORT || 8080;
 
 app.get('/', async (req, res) => {
-  // const result = await connectAndQuery();
-  await new Promise(r => setTimeout(r, 1500));
-  res.send('Welcome to my server!');
+  const result = await connectAndQuery();
+  // await new Promise(r => setTimeout(r, 1500));
+  // res.send('Welcome to my server!');
+  res.send(generateHTMLTable(result));
 });
 
 app.listen(port, () => {
@@ -56,6 +57,29 @@ const config = {
     }
 */
 
+function generateHTMLTable(data) {
+  let html = '<table border="1">';
+  
+  // Table header
+  html += '<tr>';
+  Object.keys(data[0]).forEach(key => {
+    html += `<th>${key}</th>`;
+  });
+  html += '</tr>';
+  
+  // Table rows
+  data.forEach(row => {
+    html += '<tr>';
+    Object.values(row).forEach(value => {
+      html += `<td>${value}</td>`;
+    });
+    html += '</tr>';
+  });
+  
+  html += '</table>';
+  return html;
+}
+
 console.log("Starting...");
 
 async function connectAndQuery() {
@@ -65,6 +89,7 @@ async function connectAndQuery() {
         console.log("Reading rows from the Table...");
         const query = `select * from test`;
         var resultSet = await poolConnection.request().query(query);
+        return resultSet.recordset;
 
         console.log(`${resultSet.recordset.length} rows returned.`);
 
