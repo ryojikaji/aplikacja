@@ -1,0 +1,14 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.example.jetpacktest",
+            "sha256_cert_fingerprints": [
+                "91:B6:CD:D5:A0:D7:9A:09:C0:D6:BE:98:E6:FD:D1:32:86:22:B0:99:9D:7E:84:5D:AE:4C:B0:A2:F9:C4:AA:B3"
+            ]
+        }
+    }
+]

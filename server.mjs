@@ -4,6 +4,8 @@ import sql from "mssql";
 const app = express();
 const port = process.env.PORT || 8080;
 
+app.use(express.static('public'))
+
 app.get('/', async (req, res) => {
   // try {
   //   // const result = await connectAndQuery();
