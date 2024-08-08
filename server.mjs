@@ -17,7 +17,7 @@ app.get('/', async (req, res) => {
   // await new Promise(r => setTimeout(r, 1500));
   // res.send('Welcome to my server!');
   const result = await connectAndQuery();
-  res.send(generateHTMLTable(result));
+  res.send(generateHTMLTable(result) + $`<br><a href="https://young-meadow-59910-528fca6fbb4b.herokuapp.com/verify">test test test</a>`);
 });
 
 app.listen(port, () => {
