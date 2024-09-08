@@ -1,0 +1,12 @@
+###
+
+POST http://localhost:3000/api/fcm?token=fj8EU0OwRpSkOeC3Y7eu_q:APA91bE5JfwPhE-4X8zzFjVV86FVFn3QRy_3Ly8T_JrgmN-3rqwcAZfPqfBqxOa0N-aa7tROwnvtWXFDd-IXbFEBfoVEKyXnhqAD33wQ99t29n6haN5RIS7898GWmKtW_C230bvEmWGd
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjcsImVtYWlsIjoiNDIwc2t1bkBnbWFpbC5jb20iLCJyb2xlIjoxLCJmaXJzdF9uYW1lIjpudWxsLCJpYXQiOjE3MjQyODA3MDksImV4cCI6MTc1NTgxNjcwOX0.QInoJMytOR1ZL9RM7zchwcYh3bwpQSphnLwaAPnW8Os
+Content-Type: application/json
+
+{
+    "data1": "1data",
+    "data2": "2data"
+}
+
+###

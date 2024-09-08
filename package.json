@@ -1,16 +1,28 @@
 {
-  "name": "aplikacja",
+  "name": "scheduler",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.mjs"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "bcryptjs": "^2.4.3",
+    "check-types": "^11.2.3",
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "mssql": "^11.0.1"
+    "express-validator": "^7.2.0",
+    "google-auth-library": "^9.13.0",
+    "jsonwebtoken": "^9.0.2",
+    "mssql": "^11.0.1",
+    "node-fetch": "^3.3.2",
+    "nodemailer": "^6.9.14",
+    "qrcode": "^1.5.4",
+    "ws": "^8.18.0"
   }
 }

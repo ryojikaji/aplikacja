@@ -1,0 +1,45 @@
+<script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js'
+    import { getMessaging, getToken, onMessage } from 'https://www.gstatic.com/firebasejs/10.13.0/firebase-messaging.js'
+    
+    const fcmTokenEndpoint = '/api/fcm/token'
+    const fcmSendEndpoint = token => '/api/fcm/send?token=' + token
+    const fcmConfirmEndpoint = '/api/fcm/confirm'
+    const testEndpoint = ''
+
+    const firebaseConfig = {
+        apiKey: 'AIzaSyDXK9ntNlAO06WLV2r4oJoneKyJxuCaXhQ',
+        authDomain: 'zwardon-12120.firebaseapp.com',
+        projectId: 'zwardon-12120',
+        storageBucket: 'zwardon-12120.appspot.com',
+        messagingSenderId: '784564826365',
+        appId: '1:784564826365:web:416361d6933884a0208e94'
+    }
+
+    const app = initializeApp(firebaseConfig)
+    const messaging = getMessaging(app)
+    onMessage(messaging, handleMessage)
+
+    async function handleMessage(payload) {
+        console.log('foreground notification', payload)
+        await new Promise(r => setTimeout(r, 2500))
+
+        console.log('sending confirmation')
+        fetch(fcmConfirmEndpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        })
+    }
+
+    window.getFcmToken = async function getFcmToken() {
+        const token = await getToken(messaging, { vapidKey: 'BFmnKydepWdCfhzgp5pgZyoUcHA1PxAaptYk9Hw_SBAhiw2yajiVUINUQ7IathPmR6bcLI72xceaqYk7trYVYvo' })
+
+        if (!token)
+            throw new Error('token fetch error')
+
+        return token
+    }
+</script>
